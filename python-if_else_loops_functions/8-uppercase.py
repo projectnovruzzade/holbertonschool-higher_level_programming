@@ -8,4 +8,4 @@ def uppercase(letter):
             lst += chr(a)
         else:
             lst += i
-    return "{}".format(lst)
+    print("{}".format(lst))
