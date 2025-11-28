@@ -11,3 +11,4 @@ elif lg == 0:
     print(f"Last digit of {number} is {lg} and is 0")
 else:
     print(f"Last digit of {number} is {lg * k} and is greater than 5")
+
