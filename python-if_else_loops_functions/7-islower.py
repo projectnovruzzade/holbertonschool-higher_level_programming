@@ -4,6 +4,6 @@ islower = __import__('7-islower').islower
 
 def islower(letter):
     if 97 <= ord(letter) <= 122 or 0 <= ord(letter) < 10:
-        return "lower"
+        return "{} is lower".format(letter)
     else:
-        return "upper"
+        return "{} is upper".format(letter)
