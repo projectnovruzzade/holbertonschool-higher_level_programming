@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-def add(a, b):
-    """My addition function
+from add_0 import add  # Import the function normally
 
-    Args:
-        a: first integer
-        b: second integer
+def main():
+    a = 1
+    b = 2
+    print("{} + {} = {}".format(a, b, add(a, b)))
 
-    Returns:
-        The return value. a + b
-    """
-    return (a + b)
+# This block runs only if the file is executed directly
+if __name__ == "__main__":
+    main()
