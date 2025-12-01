@@ -2,6 +2,7 @@
 import sys
 
 if __name__ == "__main__":
+    # the first list element was file name in normally that's why we must minus one in array length
     argv_len = len(sys.argv) - 1
     if argv_len == 0:
         print("0 arguments.")
