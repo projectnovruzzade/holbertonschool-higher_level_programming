@@ -1,7 +1,12 @@
 #!/usr/bin/python3
-def add(a,b):
-    return a + b
+def add(a, b):
+    """My addition function
 
-# This block runs only if the file is executed directly
-if __name__ == "__main__":
-    main()
+    Args:
+        a: first integer
+        b: second integer
+
+    Returns:
+        The return value. a + b
+    """
+    return (a + b)
