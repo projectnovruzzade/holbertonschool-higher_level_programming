@@ -4,7 +4,7 @@ def print_matrix_integer(matrix=[[]]):
         print("$")
     else:
         for i in range(len(matrix)):
-            a = ""
+            a = []
             for k in range(len(matrix)):
-                a = a + " " + str(matrix[i][k])
-            print(a, end="$\n")
+                a.append(str(matrix[i][k]))
+            print(" ".join(a), end="$\n")
