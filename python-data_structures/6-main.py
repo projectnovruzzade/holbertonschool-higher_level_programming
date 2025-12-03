@@ -8,5 +8,5 @@ matrix = [
 ]
 
 print_matrix_integer(matrix)
-print("--", end="$\n")
+print("--")
 print_matrix_integer()
