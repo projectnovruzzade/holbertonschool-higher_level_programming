@@ -7,4 +7,5 @@ def print_matrix_integer(matrix=[[]]):
             a = []
             for k in range(len(matrix)):
                 a.append(str(matrix[i][k]))
-            print(" ".join(a), end="$\n")
+            print("{}".format(" ".join(a)), end="$\n")
+            
