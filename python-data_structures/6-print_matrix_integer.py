@@ -3,9 +3,10 @@ def print_matrix_integer(matrix=[[]]):
     if matrix == [] or matrix == [[]]:
         print("$")
     else:
-        for i in range(len(matrix)):
-            a = []
-            for k in range(len(matrix)):
-                a.append(str(matrix[i][k]))
-            print("{}".format(" ".join(a)), end="$\n")
-            
+        for row in matrix:
+            for i, num in enumerate(row):
+                if i < len(row) - 1:
+                    print("{}".format(num), end=" ")
+                else:
+                    print("{}".format(num), end="")
+            print("$")
