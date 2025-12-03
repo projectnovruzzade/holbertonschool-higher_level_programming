@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
     if matrix == [] or matrix == [[]]:
-        print("$")
+        print("")
     else:
         for row in matrix:
             for i, num in enumerate(row):
