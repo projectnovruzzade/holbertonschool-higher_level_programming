@@ -48,5 +48,4 @@ def div(a, b):
     Returns:
         The return value. a / b
     """
-    print(__name__)
     return int(a / b)
