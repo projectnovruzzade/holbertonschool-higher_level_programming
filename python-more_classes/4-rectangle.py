@@ -50,10 +50,12 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
+        """Return the rectangle drawn with #"""
         if self.__width == 0 or self.__height == 0:
             return ""
 
-        arr = []
-        for _ in range(self.__height):
-            arr.append("#" * self.__width)
-        return "\n".join(arr)
+        return "\n".join("#" * self.__width for _ in range(self.__height))
+
+    def __repr__(self):
+        """Return a string representation to recreate the object"""
+        return f"Rectangle({self.__width}, {self.__height})"
