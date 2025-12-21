@@ -7,3 +7,14 @@ print(my_rectangle.__dict__)
 my_rectangle.width = 10
 my_rectangle.height = 3
 print(my_rectangle.__dict__)
+
+try:
+    my_rectangle = Rectangle(2, 3)
+    my_rectangle.width = -4
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
+try:
+    my_rectangle = Rectangle(2, 3)
+    my_rectangle.width = "4"
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
