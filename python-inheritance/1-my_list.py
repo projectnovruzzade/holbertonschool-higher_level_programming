@@ -1,5 +1,13 @@
 #!/usr/bin/python3
+"""
+this is global enviroment
+"""
+
+
 class MyList(list):
+    """
+        this is local enviroment
+    """
     def __init__(self, *args):
         super().__init__(self, *args)
 
