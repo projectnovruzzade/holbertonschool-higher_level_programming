@@ -19,20 +19,22 @@ class Shape(ABC):
 
 class Circle(Shape):
     def __init__(self, radius):
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         return pi * self.radius * self.radius
 
     def perimeter(self):
+        if self.radius < 0:
+            return "Perimeter should handle negative radius"
         return 2 * pi * self.radius
 
 
 class Rectangle(Shape):
 
     def __init__(self, width, height):
-        self.width = width
-        self.height = height
+        self.width = abs(width)
+        self.height = abs(height)
 
     def area(self):
         return self.width * self.height
