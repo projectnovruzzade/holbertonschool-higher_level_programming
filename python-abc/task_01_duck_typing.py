@@ -33,16 +33,14 @@ class Circle(Shape):
 class Rectangle(Shape):
 
     def __init__(self, width, height):
-        self.width = abs(width)
-        self.height = abs(height)
+        self.width = width
+        self.height = height
 
     def area(self):
-        if self.height < 0 or self.width < 0:
-            return "Area should handle negative dimensions"
-        return abs(self.width * self.height)
+        return self.width * self.height
 
     def perimeter(self):
-        return abs(2 * (self.width + self.height))
+        return 2 * (self.width + self.height)
 
 
 def shape_info(obj):
