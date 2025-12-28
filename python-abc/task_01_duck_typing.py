@@ -37,7 +37,7 @@ class Rectangle(Shape):
         self.height = abs(height)
 
     def area(self):
-        if self.height < 0 or self.width:
+        if self.height < 0 or self.width < 0:
             return "Area should handle negative dimensions"
         return abs(self.width * self.height)
 
