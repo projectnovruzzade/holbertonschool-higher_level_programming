@@ -8,5 +8,5 @@ def append_write(filename="", text=""):
     """
     this is internal enviroment
     """
-    with open(file, "a", encoding="utf-8") as file:
+    with open(filename, "a", encoding="utf-8") as file:
         return file.write(text)
