@@ -1,8 +1,7 @@
-import json
 #!/usr/bin/python3
-"""
-this is global enviroment
-"""
+"""Returns the JSON representation of an object."""
+
+import json
 
 
 def to_json_string(my_obj):
