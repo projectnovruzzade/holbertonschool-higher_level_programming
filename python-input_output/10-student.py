@@ -15,7 +15,7 @@ class Student():
         if not attrs and attrs != []:
             return self.__dict__
         if attrs == []:
-            return ""
+            return {}
         else:
             for element in self.__dict__:
                 if element in attrs:
