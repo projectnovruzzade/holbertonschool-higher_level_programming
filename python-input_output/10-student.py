@@ -12,9 +12,12 @@ class Student():
     def to_json(self, attrs=None):
         temp = {}
         data = self.__dict__
-        if not attrs:
+        if not attrs and attrs != []:
             return self.__dict__
-        for element in self.__dict__:
-            if element in attrs:
-                temp[element] = data[element]
-        return temp
+        if attrs == []:
+            return ""
+        else:
+            for element in self.__dict__:
+                if element in attrs:
+                    temp[element] = data[element]
+            return temp
