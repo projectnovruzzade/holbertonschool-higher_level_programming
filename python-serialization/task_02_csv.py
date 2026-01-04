@@ -4,7 +4,7 @@ import csv
 import json
 
 
-def csv_to_json(csv_filename, json_filename="data.json"):
+def convert_csv_to_json(csv_filename, json_filename="data.json"):
     try:
         data = []
 
