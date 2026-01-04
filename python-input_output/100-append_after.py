@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+    this is external
+"""
+
+
 def append_after(filename="", search_string="", new_string=""):
     """
     this is internal
