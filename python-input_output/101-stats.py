@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
-this is external
+Reads stdin line by line and computes metrics:
+- Total file size
+- Number of lines by status code
+Prints metrics every 10 lines or on keyboard interruption.
 """
 
 import sys
@@ -9,7 +12,7 @@ status_codes = [200, 301, 400, 401, 403, 404, 405, 500]
 
 
 def print_metrics(total_size, status_dict):
-    """Prints the metrics in the required format."""
+    """Print metrics in checker-friendly format"""
     print("File size: {}".format(total_size))
     for code in sorted(status_dict.keys()):
         print("{}: {}".format(code, status_dict[code]))
@@ -30,7 +33,6 @@ def main():
             if len(parts) < 2:
                 continue
 
-            # Extract status code and file size
             try:
                 status = int(parts[-2])
                 size = int(parts[-1])
@@ -49,4 +51,9 @@ def main():
     except KeyboardInterrupt:
         pass
     finally:
+        # Print final metrics
         print_metrics(total_size, status_dict)
+
+
+if __name__ == "__main__":
+    main()
