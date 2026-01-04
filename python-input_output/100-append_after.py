@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 def append_after(filename="", search_string="", new_string=""):
     """
     this is internal
