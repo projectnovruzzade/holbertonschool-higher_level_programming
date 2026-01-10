@@ -1,67 +1,47 @@
-from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import urlparse
+#!/usr/bin/python3
+"""
+Docstring for restful-api.task_03_http_server
+"""
+
+from asyncio import run
+import http
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
+import socketserver
 
-class SimpleAPIHandler(BaseHTTPRequestHandler):
+dict_sample = {"name": "John", "age": 30, "city": "New York"}
+json_sample = json.dumps(dict_sample)
 
+
+sub = http.server.SimpleHTTPRequestHandler
+
+class Handler(sub):
     def do_GET(self):
-        parsed_path = urlparse(self.path).path
-        print("PATH RECEIVED:", parsed_path)
-
-        # Root endpoint
-        if parsed_path == "/":
+        if self.path == '/':
+            self.send_response(200)  
+            self.send_header("Content-type", 'text/plain') 
+            self.end_headers()  
+            self.wfile.write(b'Hello, this is a simple API!')  
+        elif self.path == '/data':
             self.send_response(200)
-            self.send_header("Content-Type", "text/plain")
+            self.send_header('content-type', 'application/json')
             self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API!")
-            return
-
-        # /data endpoint
-        elif parsed_path == "/data":
-            data = {"name": "John", "age": 30, "city": "New York"}
-            response = json.dumps(data).encode("utf-8")
+            self.wfile.write(json_sample.encode())
+        elif self.path == '/status':
             self.send_response(200)
-            self.send_header("Content-Type", "application/json")
+            self.send_header('content-type', 'text/plain')
             self.end_headers()
-            self.wfile.write(response)
-            return
-
-        # /info endpoint
-        elif parsed_path == "/info":
-            info = {"version": "1.0", "description": "A simple API built with http.server"}
-            response = json.dumps(info).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            self.wfile.write(response)
-            return
-
-        # /status endpoint
-        elif parsed_path == "/status":
-            status = {"status": "OK"}
-            response = json.dumps(status).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            self.wfile.write(response)
-            return
-
-        # Ignore favicon
-        elif parsed_path == "/favicon.ico":
-            self.send_response(204)
-            self.end_headers()
-            return
-
-        # All other undefined endpoints
+            self.wfile.write(b'OK')
         else:
             self.send_response(404)
-            self.send_header("Content-Type", "text/plain")
+            self.send_header("Content-type", "application/json")
             self.end_headers()
-            self.wfile.write(b"Endpoint not found")
-            return
+            self.wfile.write(b'Endpoint not found')
 
 
-# Start the server
-server = HTTPServer(("localhost", 8000), SimpleAPIHandler)
-print("Server running at http://localhost:8000")
+PORT = 8000
+server = socketserver.TCPServer(('', PORT), Handler)
 server.serve_forever()
+
+if __name__ == "__main__":
+    run()
