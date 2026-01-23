@@ -1,7 +1,9 @@
 -- example
-SELECT cities.id, states.name FROM cities
-INNER JOIN
-states
-ON cities.state_id = states.id
-WHERE states.name = "California"
-GROUP BY cities.id;
+SELECT id, name
+FROM cities
+WHERE state_id = (
+    SELECT id
+    FROM states
+    WHERE name = 'California'
+)
+ORDER BY id ASC;
