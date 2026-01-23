@@ -1,3 +1,4 @@
+-- example
 SELECT s.title, g.name
 FROM tv_shows AS s
 LEFT JOIN tv_show_genres AS sg
