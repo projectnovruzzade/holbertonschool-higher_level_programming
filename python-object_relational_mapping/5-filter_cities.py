@@ -41,7 +41,7 @@ if __name__ == "__main__":
     for k in range(l):
         c += 1
         if c == l:
-            print(states[k][0], end="")
+            print(states[k][0], end="\n")
         else:
             print(states[k][0], end=", ")
 
