@@ -6,6 +6,6 @@
 --     name VARCHAR(256)
 -- );
 
-USE hbtn_0e_4_usa;
-SELECT * FROM cities;
-SELECT * FROM states;
+CREATE DATABASE IF NOT EXISTS hbtn_0e_6_usa;
+USE hbtn_0e_6_usa;
+SHOW CREATE TABLE states;
