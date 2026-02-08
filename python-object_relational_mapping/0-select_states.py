@@ -1,8 +1,14 @@
 #!/usr/bin/python3
 import sys
 import MySQLdb
+"""
+this is global enviroment
+"""
 
 if __name__ == "__main__":
+    """
+        this is local enviroment
+    """
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
