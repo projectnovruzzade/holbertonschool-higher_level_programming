@@ -36,14 +36,10 @@ if __name__ == "__main__":
     cursor.execute(query, (state, ))
 
     states = cursor.fetchall()
-    l = len(states)
-    c = 0
-    for k in range(l):
-        c += 1
-        if c == l:
-            print(states[k][0], end="\n")
-        else:
-            print(states[k][0], end=", ")
+    states_new = []
+    for state in states:
+        states_new.append(state[0])
+    print(", ".join(states_new))
 
     cursor.close()
     db.close()
