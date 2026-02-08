@@ -6,5 +6,6 @@
 --     name VARCHAR(256)
 -- );
 
-USE hbtn_0e_0_usa;
+USE hbtn_0e_4_usa;
+SELECT * FROM cities;
 SELECT * FROM states;
