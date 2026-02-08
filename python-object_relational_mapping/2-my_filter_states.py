@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    query = f'SELECT * FROM states WHERE name = "{name}"'
+    query = 'SELECT * FROM states WHERE name = "{name}"'.format(name)
     cursor.execute(query)
 
     states = cursor.fetchall()
