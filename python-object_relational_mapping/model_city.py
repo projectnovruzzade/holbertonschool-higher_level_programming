@@ -8,6 +8,9 @@ from sqlalchemy.orm import relationship
 from base import Base
 
 class City(Base):
+    """
+    citty
+    """
     __tablename__ = "cities"
 
     id = Column(Integer, primary_key=True, nullable=False)

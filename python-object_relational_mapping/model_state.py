@@ -8,6 +8,9 @@ from sqlalchemy.orm import relationship
 from base import Base
 
 class State(Base):
+    """
+    class
+    """
     __tablename__ = "states"
 
     id = Column(Integer, primary_key=True, nullable=False)
