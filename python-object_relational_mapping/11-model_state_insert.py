@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     engine = create_engine(f"mysql+mysqldb://{usnm}:{pwd}@localhost:3306/{db}")
 
-    Session = sessionmaker(bind=engine)
+    Session = sessionmaker(bind=engine, future=True)
     session = Session()
 
     new_state = State("Louisiana")
