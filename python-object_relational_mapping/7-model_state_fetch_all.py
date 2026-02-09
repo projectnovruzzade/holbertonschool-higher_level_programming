@@ -1,36 +1,24 @@
 #!/usr/bin/python3
 """
-this is external
+List all State objects from the database
 """
 
-
-import sys
-from sqlalchemy import create_engine, select
+from sys import argv
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 if __name__ == "__main__":
-    """
-    this is external
-    """
-    usm = sys.argv[1]
-    pwd = sys.argv[2]
-    dbnm = sys.argv[3]
+    usnm = argv[1]
+    pwd = argv[2]
+    db = argv[3]
 
-    engine = create_engine(
-        f"mysql+pymysql://{usm}:{pwd}@localhost:3306/{dbnm}?charset=utf8mb4",
-        echo=True,
-        pool_pre_ping=True
-    )
-
-    Base.metadata.create_all(engine)
+    engine = create_engine(f"mysql+mysqldb://{usnm}:{pwd}@localhost:3306/{db}")
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    stmt = select(State).group_by(State.id)
-    result = session.execute(stmt)
-    datas = result.scalars().all()
+    states = session.query(State).order_by(State.id).all()
 
-    for data in datas:
-        print("{}: {}".format(data.id, data.name))
+    for state in states:
+        print(f"{state.id}: {state.name}")
